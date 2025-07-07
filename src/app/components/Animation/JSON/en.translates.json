@@ -1,0 +1,14 @@
+{
+    "home" : "Home",
+    "about" : "About",
+    "project" : "Project",
+    "skills" : "Skills",
+    "contact" : "Contact",
+    "down" : "Donwload my cv",
+
+    "Hero"  : {
+        "span": "Being passionate is the key of everything",
+        "span1" : "Hi, welcome to my portfolio. I'm ",
+        "span2" : "passionate in software engineering and articifical intelligence."
+    }
+}

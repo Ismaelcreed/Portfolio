@@ -1,0 +1,15 @@
+
+{
+    "home" : "Acceuil",
+    "about" : "A propos",
+    "project" : "Mes projets",
+    "skills" : "Compétences",
+    "contact" : "Contacts",
+    "down" : "Télécharger mon cv",
+
+    "Hero"  : {
+        "span": "La passion est la clé de toutes choses",
+        "span1" : "Bonjour ,bienvenue dans mon portfolio. Je suis ",
+        "span2" : " passioner par l'intelligence artificielle et l'ingénierie informatique."
+    }
+}
