@@ -9,61 +9,68 @@ gsap.registerPlugin(ScrollTrigger);
 const HorizontalScroll = () => {
   const scrollContainerRef = useRef(null);
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    const sections = gsap.utils.toArray(".section");
+ useEffect(() => {
+  const container = scrollContainerRef.current;
+  const sections = gsap.utils.toArray(".section");
 
-    // Calculer la largeur totale du contenu
-    const totalWidth = sections.length * window.innerWidth;
+  // Calculer la largeur totale en fonction du nombre de sections
+  const totalWidth = sections.length * window.innerWidth;
 
-    // Définir la largeur du conteneur
-    gsap.set(container, { width: totalWidth });
+  // Définir la largeur du conteneur avec une marge de sécurité
+  gsap.set(container, { 
+    width: totalWidth,
+    overflow: "visible" // Ajout important
+  });
 
-    // Animation principale du défilement horizontal
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.parentNode,
-        start: "top top",
-        end: () => `+=${totalWidth - window.innerWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      }
-    });
+  // Animation principale du défilement horizontal
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.parentNode,
+      start: "top top",
+      end: () => `+=${totalWidth}`,
+      scrub: 1,
+      pin: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true // Important pour le recalcul
+    }
+  });
 
-    tl.to(container, {
-      x: () => -(totalWidth - window.innerWidth),
-      ease: "none"
-    });
+  tl.to(container, {
+    x: () => -(totalWidth - window.innerWidth),
+    ease: "none"
+  });
 
-    sections.forEach((section) => {
-      gsap.fromTo(section,
-        { autoAlpha: 0 },
-        {
-          autoAlpha: 1,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: section,
-            containerAnimation: tl,
-            start: "left center",
-            end: "right center",
-            toggleActions: "play none none reverse"
-          }
+  // Animation des sections
+  sections.forEach((section, index) => {
+    gsap.fromTo(section,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: section,
+          containerAnimation: tl,
+          start: "left center",
+          end: "right center",
+          toggleActions: "play none none reverse",
+          id: `section-${index}` // Identifiant unique
         }
-      );
-    });
+      }
+    );
+  });
 
-    // Nettoyage
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+  // Nettoyage
+  return () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  };
+}, []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <div
         ref={scrollContainerRef}
         className="scroll-container flex h-full relative w-full"
+         style={{ width: `${5 * 100}vw` }}
       >
         {/* Section 1 - EMIhack 3.0 */}
         <div className="section flex-none w-screen h-full relative text-[#214a72] flex justify-center items-center text-2xl snap-start">
@@ -142,6 +149,84 @@ const HorizontalScroll = () => {
               <span className="bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-semibold">Développement</span>
               <span className="bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-semibold">Algorithmes</span>
               <span className="bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-semibold">Cybersécurité</span>
+            </motion.div>
+          </div>
+        </div>
+
+          <div className="section flex-none w-screen h-full relative text-[#214a72] flex justify-center items-center text-2xl snap-start">
+          {/* Background avec image floutée */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url(/images/acces_Hack.jpeg)', filter: 'blur(1.5px)' }}
+          ></div>
+
+          {/* Grille de fond animée */}
+          <div className="absolute inset-0 opacity-20">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#214a72" strokeWidth="1" opacity="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid2)" />
+            </svg>
+          </div>
+
+          {/* Éléments décoratifs animés */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none">
+            <circle cx="15%" cy="25%" r="60" fill="none" stroke="#214a72" strokeWidth="2" opacity="0.3">
+              <animate attributeName="r" values="60;80;60" dur="5s" repeatCount="indefinite" />
+            </circle>
+            <rect x="80%" y="20%" width="50" height="50" fill="rgba(33, 74, 114, 0.1)" transform="rotate(30 80% 20%)">
+              <animateTransform attributeName="transform" type="rotate" values="30 105 70;390 105 70;30 105 70" dur="7s" repeatCount="indefinite" />
+            </rect>
+          </svg>
+
+          {/* Contenu principal */}
+          <div className="z-10 text-center justify-center relative">
+            <motion.h2
+              className="text-5xl font-bold mb-6 text-blue-950 drop-shadow-lg"
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              3ème place à l'Hackathon Accès Development Hub
+            </motion.h2>
+
+            <motion.p
+              className="text-xl text-center mb-6 max-w-3xl mx-auto px-4 leading-relaxed text-blue-950 drop-shadow-md"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              🏆 Hackathon organisé par Accès Banque Fianarantsoa pour promouvoir 
+              l'innovation technologique dans le secteur bancaire. 
+              Notre équipe a développé une solution innovante pour la digitalisation 
+              des services financiers. 🏆
+            </motion.p>
+
+            <motion.div
+              className="w-40 h-40 mx-auto mb-6"
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <img
+                src="/images/Acces_Banque.jpeg"
+                alt="Accès Banque"
+                className="w-full h-full object-cover rounded-full border-4 border-white shadow-2xl"
+              />
+            </motion.div>
+
+            <motion.div
+              className="flex gap-4 justify-center items-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <span className="bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-semibold">Innovation</span>
+              <span className="bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-semibold">FinTech</span>
+              <span className="bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-semibold">Solution bancaire</span>
             </motion.div>
           </div>
         </div>

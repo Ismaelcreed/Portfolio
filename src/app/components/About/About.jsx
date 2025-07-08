@@ -10,8 +10,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "master",
     level: "Master",
-    color: "from-blue-600 to-blue-800",
-    bgColor: "from-blue-50 to-blue-100",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "from-blue-900 to-blue-800",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -22,8 +22,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "licence",
     level: "Licence 3",
-    color: "from-blue-600 to-blue-800",
-    bgColor: "from-blue-50 to-blue-100",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "from-blue-900 to-blue-800",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -34,8 +34,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "licence",
     level: "Licence 2",
-    color: "from-blue-600 to-blue-800",
-    bgColor: "from-blue-50 to-blue-100",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "from-blue-900 to-blue-800",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -46,8 +46,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "licence",
     level: "Licence 1",
-    color: "from-blue-600 to-blue-800",
-    bgColor: "from-blue-50 to-blue-100",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "from-blue-900 to-blue-800",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -58,8 +58,8 @@ const educationItems = [
     location: "Antananarivo, Madagascar",
     type: "bac",
     level: "Baccalauréat",
-    color: "from-blue-600 to-blue-800",
-    bgColor: "from-blue-50 to-blue-100",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "from-blue-900 to-blue-800",
     icon: <FaGraduationCap className="w-10 h-10 text-white" />,
   },
   {
@@ -70,12 +70,11 @@ const educationItems = [
     location: "Formation intensive (1 semaine)",
     type: "certificate",
     level: "Certificat",
-    color: "from-blue-600 to-blue-800",
-    bgColor: "from-blue-50 to-blue-100",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "from-blue-900 to-blue-800",
     icon: <FaCertificate className="w-10 h-10 text-white" />,
   },
 ];
-
 
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -85,7 +84,7 @@ const AnimatedBackground = () => (
         <g key={i} className="animate-pulse" style={{ animation: `float ${3 + i * 0.5}s ease-in-out infinite` }}>
           <path
             d={`M${100 + i * 120},${100 + (i % 3) * 200} L${120 + i * 120},${80 + (i % 3) * 200} L${140 + i * 120},${100 + (i % 3) * 200} L${120 + i * 120},${120 + (i % 3) * 200} Z`}
-            fill={`hsl(${210 + i * 30}, 70%, 60%)`}
+            fill={`hsl(${210 + i * 30}, 70%, 70%)`}  
             opacity="0.3"
           />
         </g>
@@ -110,20 +109,12 @@ const AnimatedBackground = () => (
       
       <defs>
         <linearGradient id="academicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" />
-          <stop offset="50%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#06b6d4" />
+          <stop offset="0%" stopColor="#60a5fa" /> {/* bleu clair */}
+          <stop offset="50%" stopColor="#a78bfa" /> {/* violet clair */}
+          <stop offset="100%" stopColor="#22d3ee" /> {/* cyan clair */}
         </linearGradient>
       </defs>
     </svg>
-  </div>
-);
-
-const TimelineConnector = ({ isLast }) => (
-  <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-200 via-purple-200 to-indigo-200 transform -translate-x-1/2">
-    {!isLast && (
-      <div className="absolute top-full w-4 h-4 bg-white border-4 border-blue-300 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg animate-pulse" />
-    )}
   </div>
 );
 
@@ -141,11 +132,13 @@ const EducationCard = ({ item, index, isVisible }) => {
     >
       <div className="relative group">
         {/* Main card */}
-        <div className={`relative bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl ${
-          isHovered ? 'scale-105 -translate-y-2' : ''
-        }`}>
+        <div
+          className={`relative rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl ${
+            isHovered ? 'scale-105 -translate-y-2' : ''
+          } bg-white dark:bg-[#172554]`} /* fond clair / foncé */
+        >
           {/* Background gradient */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} opacity-50`} />
+          <div className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} opacity-40 dark:opacity-60`} />
           
           {/* Top gradient bar */}
           <div className={`h-2 bg-gradient-to-r ${item.color}`} />
@@ -165,32 +158,32 @@ const EducationCard = ({ item, index, isVisible }) => {
               
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <FaCalendarAlt className="w-4 h-4 text-blue-600" />
-                  <span className={`text-sm font-bold text-transparent bg-gradient-to-r ${item.color} bg-clip-text`}>
+                  <FaCalendarAlt className="w-4 h-4 text-blue-400 dark:text-blue-300" />
+                  <span className={`text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r ${item.color}`}>
                     {item.year}
                   </span>
                 </div>
                 
-                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-700 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {item.title}
                 </h3>
                 
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <FaUniversity className="w-4 h-4 text-purple-600" />
-                    <span className="text-sm font-medium text-gray-700">{item.institution}</span>
+                    <FaUniversity className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{item.institution}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <FaMapMarkerAlt className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">{item.location}</span>
+                    <FaMapMarkerAlt className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <span className="text-sm text-gray-600 dark:text-gray-400">{item.location}</span>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Progress indicator */}
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <div className="flex justify-between items-center text-xs text-gray-500">
+            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
                 <span>Progression académique</span>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -199,7 +192,7 @@ const EducationCard = ({ item, index, isVisible }) => {
                       className={`w-2 h-2 rounded-full ${
                         i < (item.type === 'master' ? 5 : item.type === 'licence' ? 4 : item.type === 'bac' ? 3 : 2)
                           ? `bg-gradient-to-r ${item.color}`
-                          : 'bg-gray-300'
+                          : 'bg-gray-300 dark:bg-gray-600'
                       }`}
                     />
                   ))}
@@ -242,7 +235,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] py-20 overflow-hidden">
       {/* Animated background */}
       <AnimatedBackground />
       
@@ -251,27 +244,27 @@ const About = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="relative">
-              <FaUniversity className="w-12 h-12 text-blue-600 animate-pulse" />
-              <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 animate-ping" />
+              <FaUniversity className="w-12 h-12 text-blue-600 dark:text-blue-400 animate-pulse" />
+              <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 dark:opacity-20 animate-ping" />
             </div>
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-500 dark:to-indigo-400">
               Parcours Académique
             </h2>
             <div className="relative">
-              <FaGraduationCap className="w-12 h-12 text-blue-900 animate-pulse" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 animate-ping" style={{ animationDelay: '0.5s' }} />
+              <FaGraduationCap className="w-12 h-12 text-blue-900 dark:text-blue-400 animate-pulse" style={{ animationDelay: '0.5s' }} />
+              <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 dark:opacity-20 animate-ping" style={{ animationDelay: '0.5s' }} />
             </div>
           </div>
           
           <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-4" />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Un voyage académique marqué par l'excellence et l'innovation technologique
           </p>
         </div>
 
         {/* Timeline view for larger screens */}
         <div className="hidden lg:block relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-blue-600 to-indigo-300 transform -translate-x-1/2 rounded-full" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-blue-600 to-indigo-300 dark:from-blue-700 dark:via-purple-700 dark:to-indigo-900 transform -translate-x-1/2 rounded-full" />
           
           <div className="space-y-16">
             {educationItems.map((item, index) => (
@@ -291,8 +284,8 @@ const About = () => {
                 </div>
                 
                 {/* Timeline node */}
-                <div className="absolute left-1/2 w-6 h-6 bg-white border-4 border-blue-400 rounded-full transform -translate-x-1/2 shadow-lg z-10">
-                  <div className="w-full h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse" />
+                <div className="absolute left-1/2 w-6 h-6 bg-white dark:bg-gray-900 border-4 border-blue-400 dark:border-blue-600 rounded-full transform -translate-x-1/2 shadow-lg z-10">
+                  <div className="w-full h-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 rounded-full animate-pulse" />
                 </div>
               </div>
             ))}

@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Animation pour les éléments qui apparaissent
 const Fadeup = (delay) => ({
   initial: { opacity: 0, y: 50 },
   animate: {
@@ -24,7 +25,9 @@ const NavBar = () => {
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [darkMode, setDarkMode] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  // Traductions
   const t = (key) => {
     const translations = {
       en: { home: 'Home', about: 'About', project: 'Projects', skills: 'Skills', contact: 'Contact' },
@@ -33,42 +36,51 @@ const NavBar = () => {
     return translations[lang][key] || key;
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-      for (const section of sections) {
-        const element = section === 'home' ? document.body : document.getElementById(section);
-        if (element) {
-          const top = section === 'home' ? 0 : element.offsetTop;
-          const bottom = top + element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < bottom) {
-            setActiveSection(section);
-            break;
-          }
+  // Gestion du scroll avec useCallback pour optimiser les performances
+  const handleScroll = useCallback(() => {
+    const sections = ['home', 'about', 'projects', 'skills', 'contact'];
+    const scrollPosition = window.scrollY + 100;
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const { offsetTop, offsetHeight } = element;
+        const sectionTop = offsetTop;
+        const sectionBottom = sectionTop + offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          setActiveSection(section);
+          break;
         }
       }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    }
+
+    setScrolled(window.scrollY > 10);
   }, []);
 
   useEffect(() => {
+    // Vérification initiale au chargement
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+
+  // Gestion du thème sombre
+  useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      setDarkMode(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setDarkMode(false);
-    }
+    const isDark = savedTheme === 'dark';
+    setDarkMode(isDark);
+    document.documentElement.classList.toggle('dark', isDark);
   }, []);
 
   const toggleDarkMode = () => {
-    const isDark = !darkMode;
-    setDarkMode(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark', isDark);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', newDarkMode);
   };
 
   const selectLanguage = (code) => {
@@ -78,11 +90,15 @@ const NavBar = () => {
 
   const handleLinkClick = (e, path, section) => {
     e.preventDefault();
-    const offsetTop = section === 'home' ? 0 : document.getElementById(section)?.offsetTop - 80;
-    window.scrollTo({ top: offsetTop || 0, behavior: 'smooth' });
+    const element = document.getElementById(section);
+    if (element) {
+      const offsetTop = section === 'home' ? 0 : element.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
     setIsMenuOpen(false);
   };
 
+  // Menu items
   const menu = [
     { id: 1, name: t('home'), path: "/", section: "home" },
     { id: 2, name: t('about'), path: "#about", section: "about" },
@@ -91,6 +107,7 @@ const NavBar = () => {
     { id: 5, name: t('contact'), path: "#contact", section: "contact" },
   ];
 
+  // Langues disponibles
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
@@ -101,24 +118,37 @@ const NavBar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="font-poppins fixed w-full top-0 z-50 bg-white dark:bg-[#162e55] backdrop-blur-md border-b border-white/20 dark:border-white/10 transition-all duration-300"
+      className={`font-poppins fixed w-full top-0 z-50 transition-all duration-300
+        ${scrolled
+          ? 'bg-white/70 dark:bg-[#162e55]/70 backdrop-blur-md shadow-md border-b border-gray-200/30 dark:border-white/10'
+          : 'bg-white/50 dark:bg-[#102342] border-b border-transparent'
+        }`}
     >
       <div className='container mx-auto px-6 py-4 flex justify-between items-center'>
         {/* Logo */}
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center">
+        <motion.div 
+          whileHover={{ scale: 1.05 }} 
+          whileTap={{ scale: 0.95 }} 
+          className="flex items-center"
+        >
           <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-900 rounded-xl flex items-center justify-center shadow-lg">
             <span className="text-white font-bold text-lg">RBI</span>
           </div>
-          <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent hidden sm:block">
+          <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent hidden sm:block dark:text-white">
             RAZAFINDRATSIMBA
           </span>
         </motion.div>
 
-        {/* Desktop Menu */}
+        {/* Menu Desktop */}
         <div className="hidden lg:flex items-center space-x-8">
           <ul className="flex items-center gap-8">
             {menu.map((item, index) => (
-              <motion.li key={item.id} variants={Fadeup(0.1 * index)} initial="initial" animate="animate">
+              <motion.li 
+                key={item.id} 
+                variants={Fadeup(0.1 * index)} 
+                initial="initial" 
+                animate="animate"
+              >
                 <a
                   href={item.path}
                   onClick={(e) => handleLinkClick(e, item.path, item.section)}
@@ -137,7 +167,7 @@ const NavBar = () => {
             ))}
           </ul>
 
-          {/* Language Selector */}
+          {/* Sélecteur de langue */}
           <div className="relative">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -152,6 +182,7 @@ const NavBar = () => {
             <AnimatePresence>
               {showLangDropdown && (
                 <motion.div
+                  key="language-dropdown"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -174,7 +205,7 @@ const NavBar = () => {
             </AnimatePresence>
           </div>
 
-          {/* Dark mode toggle */}
+          {/* Bouton mode sombre */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -185,7 +216,7 @@ const NavBar = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Bouton menu mobile */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -196,19 +227,25 @@ const NavBar = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu mobile */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            key="mobile-menu"
             initial={{ opacity: 0, maxHeight: 0 }}
             animate={{ opacity: 1, maxHeight: 500 }}
             exit={{ opacity: 0, maxHeight: 0 }}
-            className="lg:hidden bg-white/95 dark:bg-[#234377] backdrop-blur-md border-t border-gray-200/20 dark:border-white/10 overflow-hidden"
+            className="lg:hidden bg-white/95 dark:bg-[#0f172a] backdrop-blur-md border-t border-gray-200/20 dark:border-white/10 overflow-hidden"
           >
             <div className="container mx-auto px-6 py-6">
               <ul className="space-y-4">
                 {menu.map((item, index) => (
-                  <motion.li key={item.id} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 * index }}>
+                  <motion.li 
+                    key={item.id} 
+                    initial={{ opacity: 0, x: -20 }} 
+                    animate={{ opacity: 1, x: 0 }} 
+                    transition={{ delay: 0.1 * index }}
+                  >
                     <a
                       href={item.path}
                       onClick={(e) => handleLinkClick(e, item.path, item.section)}
@@ -232,4 +269,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-    

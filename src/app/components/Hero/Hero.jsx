@@ -15,7 +15,7 @@ const Hero = () => {
     };
 
     return (
-       <section className="relative min-h-screen transition-all duration-300 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] overflow-hidden">
+        <section className="relative min-h-screen transition-all duration-300 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden z-0">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
@@ -28,15 +28,15 @@ const Hero = () => {
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <circle cx="20" cy="20" r="1.5" fill="url(#dotGradient)" opacity="0.6"/>
-                            <circle cx="10" cy="10" r="1" fill="url(#dotGradient)" opacity="0.3"/>
-                            <circle cx="30" cy="10" r="1" fill="url(#dotGradient)" opacity="0.3"/>
-                            <circle cx="10" cy="30" r="1" fill="url(#dotGradient)" opacity="0.3"/>
-                            <circle cx="30" cy="30" r="1" fill="url(#dotGradient)" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="1.5" fill="url(#dotGradient)" opacity="0.6" />
+                            <circle cx="10" cy="10" r="1" fill="url(#dotGradient)" opacity="0.3" />
+                            <circle cx="30" cy="10" r="1" fill="url(#dotGradient)" opacity="0.3" />
+                            <circle cx="10" cy="30" r="1" fill="url(#dotGradient)" opacity="0.3" />
+                            <circle cx="30" cy="30" r="1" fill="url(#dotGradient)" opacity="0.3" />
                         </pattern>
                         <linearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style={{stopColor: '#3b82f6', stopOpacity: 0.8}} />
-                            <stop offset="100%" style={{stopColor: '#8b5cf6', stopOpacity: 0.4}} />
+                            <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.8 }} />
+                            <stop offset="100%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.4 }} />
                         </linearGradient>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#dots)" />
@@ -49,19 +49,19 @@ const Hero = () => {
                     <defs>
                         <pattern id="animatedDots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
                             <circle cx="30" cy="30" r="2" fill="#3b82f6" opacity="0.5">
-                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite" />
                             </circle>
                             <circle cx="15" cy="15" r="1" fill="#8b5cf6" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" begin="0.5s" />
                             </circle>
                             <circle cx="45" cy="15" r="1" fill="#06b6d4" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.5s" repeatCount="indefinite" begin="1s"/>
+                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.5s" repeatCount="indefinite" begin="1s" />
                             </circle>
                             <circle cx="15" cy="45" r="1" fill="#10b981" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.2s" repeatCount="indefinite" begin="1.5s"/>
+                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.2s" repeatCount="indefinite" begin="1.5s" />
                             </circle>
                             <circle cx="45" cy="45" r="1" fill="#f59e0b" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.8s" repeatCount="indefinite" begin="2s"/>
+                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.8s" repeatCount="indefinite" begin="2s" />
                             </circle>
                         </pattern>
                     </defs>
@@ -74,11 +74,11 @@ const Hero = () => {
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern id="geometricDots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                            <circle cx="50" cy="50" r="3" fill="none" stroke="#3b82f6" strokeWidth="0.5" opacity="0.6"/>
-                            <circle cx="25" cy="25" r="1.5" fill="#8b5cf6" opacity="0.4"/>
-                            <circle cx="75" cy="25" r="1.5" fill="#8b5cf6" opacity="0.4"/>
-                            <circle cx="25" cy="75" r="1.5" fill="#8b5cf6" opacity="0.4"/>
-                            <circle cx="75" cy="75" r="1.5" fill="#8b5cf6" opacity="0.4"/>
+                            <circle cx="50" cy="50" r="3" fill="none" stroke="#3b82f6" strokeWidth="0.5" opacity="0.6" />
+                            <circle cx="25" cy="25" r="1.5" fill="#8b5cf6" opacity="0.4" />
+                            <circle cx="75" cy="25" r="1.5" fill="#8b5cf6" opacity="0.4" />
+                            <circle cx="25" cy="75" r="1.5" fill="#8b5cf6" opacity="0.4" />
+                            <circle cx="75" cy="75" r="1.5" fill="#8b5cf6" opacity="0.4" />
                         </pattern>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#geometricDots)" />
@@ -106,9 +106,10 @@ const Hero = () => {
                                             <img
                                                 src="/images/coding.png"
                                                 alt="Profile"
-                                                className="w-full h-full rounded-full object-cover"
+                                                className="w-full h-full rounded-full object-cover filter drop-shadow-lg"
                                             />
                                         </div>
+
                                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
                                             <div className="w-3 h-3 bg-white rounded-full"></div>
                                         </div>
@@ -119,7 +120,7 @@ const Hero = () => {
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                                     <span className="text-gray-800 dark:text-white">{t("Hero.span1")}</span>
                                     <br />
-                                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
                                         RAZAFINDRATSIMBA
                                     </span>
                                     <br />
@@ -211,9 +212,9 @@ const Hero = () => {
                                 <div className="relative z-10">
                                     <div className="max-w-[350px] max-h-[400px] p-0">
                                         <img
-                                            src="/images/profil.png"
-                                            alt="Profile Bruno Ismael"
-                                            className="w-full h-full object-cover rounded-full"
+                                        src="/images/profil.png"
+                                        alt="Profile"
+                                        className="w-full h-full rounded-full object-cover drop-shadow-[0_5px_10px_rgba(0,11,118,0.6)]"
                                         />
                                     </div>
 
