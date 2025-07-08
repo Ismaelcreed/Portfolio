@@ -60,7 +60,7 @@ const HorizontalScroll = () => {
   }, []);
 
   return (
-    <div className="container mx-auto overflow-hidden h-screen w-screen min-w-full">-
+    <div className="relative w-screen h-screen overflow-hidden">
       <div
         ref={scrollContainerRef}
         className="scroll-container flex h-full relative w-full"

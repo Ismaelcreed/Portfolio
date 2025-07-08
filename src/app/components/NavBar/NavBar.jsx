@@ -106,7 +106,7 @@ const NavBar = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+            className={`font-poppins fixed w-full top-0 z-50 transition-all duration-300 ${
                 isScrolled 
                     ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
                     : 'bg-transparent'
@@ -185,15 +185,7 @@ const NavBar = () => {
                         </AnimatePresence>
                     </div>
 
-                    {/* Download Button */}
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                        <Download className="w-4 h-4" />
-                        {t('down')}
-                    </motion.button>
+                
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -211,14 +203,14 @@ const NavBar = () => {
                 </motion.button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Correction principale: animation maxHeight */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/20"
+                        initial={{ opacity: 0, maxHeight: 0 }}
+                        animate={{ opacity: 1, maxHeight: 500 }}
+                        exit={{ opacity: 0, maxHeight: 0 }}
+                        className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/20 overflow-hidden"
                     >
                         <div className="container mx-auto px-6 py-6">
                             <ul className="space-y-4">
