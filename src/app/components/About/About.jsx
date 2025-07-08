@@ -10,8 +10,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "master",
     level: "Master",
-    color: "from-purple-500 to-indigo-600",
-    bgColor: "from-purple-50 to-indigo-50",
+    color: "from-blue-600 to-blue-800",
+    bgColor: "from-blue-50 to-blue-100",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -22,8 +22,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "licence",
     level: "Licence 3",
-    color: "from-blue-500 to-cyan-600",
-    bgColor: "from-blue-50 to-cyan-50",
+    color: "from-blue-600 to-blue-800",
+    bgColor: "from-blue-50 to-blue-100",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -34,8 +34,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "licence",
     level: "Licence 2",
-    color: "from-green-500 to-teal-600",
-    bgColor: "from-green-50 to-teal-50",
+    color: "from-blue-600 to-blue-800",
+    bgColor: "from-blue-50 to-blue-100",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -46,8 +46,8 @@ const educationItems = [
     location: "Fianarantsoa, Madagascar",
     type: "licence",
     level: "Licence 1",
-    color: "from-orange-500 to-red-600",
-    bgColor: "from-orange-50 to-red-50",
+    color: "from-blue-600 to-blue-800",
+    bgColor: "from-blue-50 to-blue-100",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -58,9 +58,9 @@ const educationItems = [
     location: "Antananarivo, Madagascar",
     type: "bac",
     level: "Baccalauréat",
-    color: "from-yellow-500 to-orange-600",
-    bgColor: "from-yellow-50 to-orange-50",
-    icon: <FaGraduationCap className="w-10 h-10 text-yellow-600" />,
+    color: "from-blue-600 to-blue-800",
+    bgColor: "from-blue-50 to-blue-100",
+    icon: <FaGraduationCap className="w-10 h-10 text-white" />,
   },
   {
     id: 6,
@@ -70,11 +70,12 @@ const educationItems = [
     location: "Formation intensive (1 semaine)",
     type: "certificate",
     level: "Certificat",
-    color: "from-pink-500 to-rose-600",
-    bgColor: "from-pink-50 to-rose-50",
-    icon: <FaCertificate className="w-10 h-10 text-pink-600" />,
+    color: "from-blue-600 to-blue-800",
+    bgColor: "from-blue-50 to-blue-100",
+    icon: <FaCertificate className="w-10 h-10 text-white" />,
   },
 ];
+
 
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -253,12 +254,12 @@ const About = () => {
               <FaUniversity className="w-12 h-12 text-blue-600 animate-pulse" />
               <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 animate-ping" />
             </div>
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent">
               Parcours Académique
             </h2>
             <div className="relative">
-              <FaGraduationCap className="w-12 h-12 text-purple-600 animate-pulse" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute inset-0 bg-purple-600 rounded-full blur-md opacity-30 animate-ping" style={{ animationDelay: '0.5s' }} />
+              <FaGraduationCap className="w-12 h-12 text-blue-900 animate-pulse" style={{ animationDelay: '0.5s' }} />
+              <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 animate-ping" style={{ animationDelay: '0.5s' }} />
             </div>
           </div>
           
@@ -270,7 +271,7 @@ const About = () => {
 
         {/* Timeline view for larger screens */}
         <div className="hidden lg:block relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-300 via-purple-300 to-indigo-300 transform -translate-x-1/2 rounded-full" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-blue-600 to-indigo-300 transform -translate-x-1/2 rounded-full" />
           
           <div className="space-y-16">
             {educationItems.map((item, index) => (

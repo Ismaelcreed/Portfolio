@@ -3,15 +3,6 @@ import React from 'react';
 import CircularText from "../CircularText/CircularText";
 import { Github, Facebook, Phone, Mail, Download, ArrowDown, Sparkles, BrainCircuit, Lightbulb } from 'lucide-react';
 
-// Composant CircularText simulé (remplacez par votre composant réel)
-// const CircularText = ({ text, spinDuration, className }) => (
-// //     <div className={`animate-spin ${className}`} style={{animationDuration: `${spinDuration}s`}}>
-// //         <div className="w-32 h-32 border-2 border-dashed border-blue-400 rounded-full flex items-center justify-center">
-// //             <span className="text-xs text-blue-600 text-center">CIRCULAR TEXT</span>
-// //         </div>
-// //     </div>
-// // );
-
 const Hero = () => {
     // Simulation des traductions
     const t = (key) => {
@@ -24,7 +15,7 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+       <section className="relative min-h-screen transition-all duration-300 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden z-0">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
@@ -109,7 +100,7 @@ const Hero = () => {
                                 </div>
 
                                 {/* Profile image for mobile */}
-                              <div className="flex justify-center lg:hidden mb-8">
+                                <div className="flex justify-center lg:hidden mb-8">
                                     <div className="relative">
                                         <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-1 shadow-2xl">
                                             <img
@@ -126,17 +117,17 @@ const Hero = () => {
 
                                 {/* Main heading */}
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                                    <span className="text-gray-800">{t("Hero.span1")}</span>
+                                    <span className="text-gray-800 dark:text-white">{t("Hero.span1")}</span>
                                     <br />
                                     <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                         RAZAFINDRATSIMBA
                                     </span>
                                     <br />
-                                    <span className="text-gray-800">Bruno Ismael</span>
+                                    <span className="text-gray-800 dark:text-white">Bruno Ismael</span>
                                 </h1>
 
                                 {/* Subtitle */}
-                                <p className="text-xl md:text-2xl text-gray-600 max-w-2xl">
+                                <p className="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-gray-400">
                                     {t("Hero.span2")}
                                 </p>
 
@@ -170,8 +161,8 @@ const Hero = () => {
                             </div>
 
                             {/* Social links */}
-                            <div className="space-y-4">
-                                <p className="text-gray-600 font-medium text-center lg:text-left">
+                            <div className="space-y-4 ">
+                                <p className="text-gray-600 font-medium text-center lg:text-left dark:text-white">
                                     Connectez-vous avec moi
                                 </p>
                                 <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
@@ -181,8 +172,8 @@ const Hero = () => {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-110"
                                     >
-                                        <Facebook className="w-5 h-5" />
-                                        <span className="hidden sm:inline">Facebook</span>
+                                        <Facebook className="w-5 h-5 dark:text-white" />
+                                        <span className="hidden sm:inline dark:text-white">Facebook</span>
                                     </a>
 
                                     <a
@@ -191,21 +182,21 @@ const Hero = () => {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-all duration-300 hover:scale-110"
                                     >
-                                        <Github className="w-5 h-5" />
-                                        <span className="hidden sm:inline">GitHub</span>
+                                        <Github className="w-5 h-5 dark:text-white" />
+                                        <span className="hidden sm:inline dark:text-white">GitHub</span>
                                     </a>
 
                                     <a
                                         href="mailto:razafindratsimbabrunoismael@gmail.com"
                                         className="flex items-center gap-2 text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110"
                                     >
-                                        <Mail className="w-5 h-5" />
-                                        <span className="hidden sm:inline">Email</span>
+                                        <Mail className="w-5 h-5 dark:text-white" />
+                                        <span className="hidden sm:inline dark:text-white">Email</span>
                                     </a>
 
                                     <div className="flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-all duration-300 hover:scale-110">
-                                        <Phone className="w-5 h-5" />
-                                        <span className="hidden sm:inline text-sm">
+                                        <Phone className="w-5 h-5 dark:text-white" />
+                                        <span className="hidden sm:inline text-sm dark:text-white">
                                             +261 34 58 997 43
                                         </span>
                                     </div>
@@ -218,11 +209,15 @@ const Hero = () => {
                             <div className="relative w-full max-w-lg">
                                 {/* Profile Image */}
                                 <div className="relative z-10">
-                                    <div className="w-80 h-80 overflow-hidden mx-auto rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-2 shadow-2xl">
-                                        <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
-                                            <span className="text-white text-6xl font-bold">BI</span>
-                                        </div>
+                                    <div className="max-w-[350px] max-h-[400px] p-0">
+                                        <img
+                                            src="/images/profil.png"
+                                            alt="Profile Bruno Ismael"
+                                            className="w-full h-full object-cover rounded-full"
+                                        />
                                     </div>
+
+
 
                                     {/* CircularText positioned top-right */}
                                     <div className="absolute -top-6 -right-6">
