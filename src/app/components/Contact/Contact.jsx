@@ -154,7 +154,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full py-4 px-6 rounded-xl bg-indigo-600 text-white font-semibold text-lg shadow-lg hover:bg-indigo-700 transition-all duration-300 disabled:opacity-50"
+                  className="w-full py-4 px-6 rounded-xl bg-blue-800 text-white font-semibold text-lg shadow-lg hover:bg-indigo-900 transition-all duration-300 disabled:opacity-50"
                 >
                   {sending ? (
                     <div className="flex items-center justify-center space-x-2">

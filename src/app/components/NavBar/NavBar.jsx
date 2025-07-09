@@ -20,7 +20,7 @@ const Fadeup = (delay) => ({
 });
 
 const NavBar = () => {
-  const [lang, setLanguage] = useState('en');
+  const [lang, setLanguage] = useState('fr');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const [activeSection, setActiveSection] = useState('home');

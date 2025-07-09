@@ -294,7 +294,7 @@ const Project = () => {
               <CodeIcon className="w-12 h-12 text-blue-600 animate-pulse" />
               <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 animate-ping" />
             </div>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent md:text-2xl">
               MES PROJETS
             </h1>
             <div className="relative">

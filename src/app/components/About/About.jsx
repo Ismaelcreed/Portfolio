@@ -192,7 +192,7 @@ const EducationCard = ({ item, index, isVisible }) => {
                       className={`w-2 h-2 rounded-full ${
                         i < (item.type === 'master' ? 5 : item.type === 'licence' ? 4 : item.type === 'bac' ? 3 : 2)
                           ? `bg-gradient-to-r ${item.color}`
-                          : 'bg-gray-300 dark:bg-gray-600'
+                          : 'bg-white dark:bg-gray-600'
                       }`}
                     />
                   ))}
@@ -247,7 +247,7 @@ const About = () => {
               <FaUniversity className="w-12 h-12 text-blue-600 dark:text-blue-400 animate-pulse" />
               <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 dark:opacity-20 animate-ping" />
             </div>
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-500 dark:to-indigo-400">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-800 dark:to-indigo-600 md:text-1xl">
               Parcours Académique
             </h2>
             <div className="relative">

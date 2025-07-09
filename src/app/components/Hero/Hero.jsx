@@ -99,25 +99,26 @@ const Hero = () => {
                                     {t("Hero.span")}
                                 </div>
 
+                                
                                 {/* Profile image for mobile */}
                                 <div className="flex justify-center lg:hidden mb-8">
                                     <div className="relative">
-                                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-1 shadow-2xl">
+                                        <div className="w-40 h-40 sm:w-48 sm:h-48 overflow-hidden">
                                             <img
-                                                src="/images/coding.png"
+                                                src="/images/profil.png"
                                                 alt="Profile"
-                                                className="w-full h-full rounded-full object-cover filter drop-shadow-lg"
+                                                className="w-full h-full object-contain rounded-full"
                                             />
                                         </div>
-
                                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
                                             <div className="w-3 h-3 bg-white rounded-full"></div>
                                         </div>
                                     </div>
                                 </div>
 
+
                                 {/* Main heading */}
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                                <h1 className="text-4xl md:text-5xl z-10 lg:text-6xl justify-start font-bold leading-tight">
                                     <span className="text-gray-800 dark:text-white">{t("Hero.span1")}</span>
                                     <br />
                                     <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
@@ -212,9 +213,9 @@ const Hero = () => {
                                 <div className="relative z-10">
                                     <div className="max-w-[350px] max-h-[400px] p-0">
                                         <img
-                                        src="/images/profil.png"
-                                        alt="Profile"
-                                        className="w-full h-full rounded-full object-cover drop-shadow-[0_5px_10px_rgba(0,11,118,0.6)]"
+                                            src="/images/profil.png"
+                                            alt="Profile"
+                                            className="w-full h-full rounded-full object-cover drop-shadow-[0_5px_10px_rgba(0,11,118,0.6)]"
                                         />
                                     </div>
 

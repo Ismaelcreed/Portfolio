@@ -185,7 +185,7 @@ const HorizontalScroll = () => {
           {/* Contenu principal */}
           <div className="z-10 text-center justify-center relative">
             <motion.h2
-              className="text-5xl font-bold mb-6 text-blue-950 drop-shadow-lg"
+              className="text-4xl font-bold mb-6 text-blue-950 drop-shadow-lg"
               initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
