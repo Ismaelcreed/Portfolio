@@ -11,7 +11,7 @@ const educationItems = [
     type: "master",
     level: "Master",
     color: "from-blue-400 to-blue-600",
-    bgColor: "from-blue-900 to-blue-800",
+    bgColor: "white",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -23,7 +23,7 @@ const educationItems = [
     type: "licence",
     level: "Licence 3",
     color: "from-blue-400 to-blue-600",
-    bgColor: "from-blue-900 to-blue-800",
+    bgColor: "white",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -35,7 +35,7 @@ const educationItems = [
     type: "licence",
     level: "Licence 2",
     color: "from-blue-400 to-blue-600",
-    bgColor: "from-blue-900 to-blue-800",
+    bgColor: "white",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -47,7 +47,7 @@ const educationItems = [
     type: "licence",
     level: "Licence 1",
     color: "from-blue-400 to-blue-600",
-    bgColor: "from-blue-900 to-blue-800",
+    bgColor: "white",
     icon: <img src="/images/EMIT.jpg" alt="EMIT" className="w-12 h-12 rounded-full shadow-lg object-cover" />,
   },
   {
@@ -59,7 +59,7 @@ const educationItems = [
     type: "bac",
     level: "Baccalauréat",
     color: "from-blue-400 to-blue-600",
-    bgColor: "from-blue-900 to-blue-800",
+    bgColor: "white",
     icon: <FaGraduationCap className="w-10 h-10 text-white" />,
   },
   {
@@ -71,47 +71,76 @@ const educationItems = [
     type: "certificate",
     level: "Certificat",
     color: "from-blue-400 to-blue-600",
-    bgColor: "from-blue-900 to-blue-800",
+    bgColor: "white",
     icon: <FaCertificate className="w-10 h-10 text-white" />,
   },
 ];
 
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <svg className="w-full h-full opacity-30" viewBox="0 0 1000 1000">
-      {/* Graduation caps floating */}
-      {[...Array(8)].map((_, i) => (
-        <g key={i} className="animate-pulse" style={{ animation: `float ${3 + i * 0.5}s ease-in-out infinite` }}>
-          <path
-            d={`M${100 + i * 120},${100 + (i % 3) * 200} L${120 + i * 120},${80 + (i % 3) * 200} L${140 + i * 120},${100 + (i % 3) * 200} L${120 + i * 120},${120 + (i % 3) * 200} Z`}
-            fill={`hsl(${210 + i * 30}, 70%, 70%)`}  
-            opacity="0.3"
-          />
-        </g>
+    <svg className="w-full h-full" viewBox="0 0 1000 1000">
+      {/* Particules animées */}
+      {[...Array(20)].map((_, i) => (
+        <circle
+          key={i}
+          cx={Math.random() * 1000}
+          cy={Math.random() * 1000}
+          r={Math.random() * 3 + 1}
+          fill="rgba(99, 102, 241, 0.3)"
+          className="animate-pulse dark:fill-[rgba(79,70,229,0.3)]"
+          style={{
+            animation: `flotter ${Math.random() * 3 + 2}s ease-in-out infinite alternate`,
+            animationDelay: `${Math.random() * 2}s`
+          }}
+        />
       ))}
       
-      {/* Academic network connections */}
+      {/* Lignes de connexion */}
       <g className="opacity-20">
-        {[...Array(6)].map((_, i) => (
-          <line
+        {[...Array(5)].map((_, i) => (
+          <path
             key={i}
-            x1={Math.random() * 1000}
-            y1={Math.random() * 1000}
-            x2={Math.random() * 1000}
-            y2={Math.random() * 1000}
-            stroke="url(#academicGradient)"
+            d={`M${Math.random() * 1000},${Math.random() * 1000} Q${Math.random() * 1000},${Math.random() * 1000} ${Math.random() * 1000},${Math.random() * 1000}`}
+            stroke="url(#degrade)"
             strokeWidth="2"
+            fill="none"
             className="animate-pulse"
-            style={{ animation: `draw ${4 + i}s ease-in-out infinite alternate` }}
           />
         ))}
       </g>
       
+      {/* Formes décoratives corrigées */}
+      <rect 
+        x="50" 
+        y="700" 
+        width="50" 
+        height="50" 
+        fill="rgba(99, 102, 241, 0.2)"
+        transform="rotate(45, 50, 700)"
+        className="animate-pulse"
+      />
+      
+      <rect 
+        x="800" 
+        y="200" 
+        width="50" 
+        height="50" 
+        fill="rgba(99, 102, 241, 0.2)"
+        transform="rotate(30, 800, 200)"
+        className="animate-pulse"
+      />
+      
+      <polygon 
+        points="850,250 900,300 850,350 800,300" 
+        fill="rgba(99, 102, 241, 0.2)"
+        transform="translate(800, 200)"
+        className="animate-pulse"
+      />
+      
       <defs>
-        <linearGradient id="academicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#60a5fa" /> {/* bleu clair */}
-          <stop offset="50%" stopColor="#a78bfa" /> {/* violet clair */}
-          <stop offset="100%" stopColor="#22d3ee" /> {/* cyan clair */}
+        <linearGradient id="degrade" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#6366f1" />
+          <stop offset="100%" stopColor="#8b5cf6" />
         </linearGradient>
       </defs>
     </svg>
@@ -247,7 +276,7 @@ const About = () => {
               <FaUniversity className="w-12 h-12 text-blue-600 dark:text-blue-400 animate-pulse" />
               <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30 dark:opacity-20 animate-ping" />
             </div>
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-800 dark:to-indigo-600 md:text-1xl">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-800 dark:to-indigo-600 md:text-1xl">
               Parcours Académique
             </h2>
             <div className="relative">

@@ -29,12 +29,12 @@ const NavBar = () => {
 
   // Traductions
   const t = (key) => {
-    const translations = {
-      en: { home: 'Home', about: 'About', project: 'Projects', skills: 'Skills', contact: 'Contact' },
-      fr: { home: 'Accueil', about: 'À Propos', project: 'Projets', skills: 'Compétences', contact: 'Contact' }
-    };
-    return translations[lang][key] || key;
+  const translations = {
+    en: { home: 'Home', about: 'About', project: 'Projects', skills: 'Skills', contact: 'Contact' },
+    fr: { home: 'Accueil', about: 'À Propos', project: 'Projets', skills: 'Compétences', contact: 'Contact' }
   };
+  return translations[lang][key] || key;
+};
 
   // Gestion du scroll avec useCallback pour optimiser les performances
   const handleScroll = useCallback(() => {
@@ -100,12 +100,12 @@ const NavBar = () => {
 
   // Menu items
   const menu = [
-    { id: 1, name: t('home'), path: "/", section: "home" },
-    { id: 2, name: t('about'), path: "#about", section: "about" },
-    { id: 3, name: t('project'), path: "#projects", section: "projects" },
-    { id: 4, name: t('skills'), path: "#skills", section: "skills" },
-    { id: 5, name: t('contact'), path: "#contact", section: "contact" },
-  ];
+  { id: 1, name: 'Accueil', path: "/", section: "home" },
+  { id: 2, name: 'À Propos', path: "#about", section: "about" },
+  { id: 3, name: 'Projets', path: "#projects", section: "projects" },
+  { id: 4, name: 'Compétences', path: "#skills", section: "skills" },
+  { id: 5, name: 'Contact', path: "#contact", section: "contact" },
+];
 
   // Langues disponibles
   const languages = [
@@ -166,44 +166,6 @@ const NavBar = () => {
               </motion.li>
             ))}
           </ul>
-
-          {/* Sélecteur de langue */}
-          <div className="relative">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowLangDropdown(!showLangDropdown)}
-              className="p-2 rounded-lg hover:bg-white/20 transition-colors duration-300 flex items-center gap-2"
-            >
-              <Globe className="w-5 h-5 text-gray-600 dark:text-white" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-200 uppercase">{lang}</span>
-            </motion.button>
-
-            <AnimatePresence>
-              {showLangDropdown && (
-                <motion.div
-                  key="language-dropdown"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 bg-white/95 dark:bg-[#1e293b] backdrop-blur-md rounded-lg shadow-xl border border-gray-200/20 dark:border-white/10 overflow-hidden min-w-[140px]"
-                >
-                  {languages.map((language) => (
-                    <button
-                      key={language.code}
-                      onClick={() => selectLanguage(language.code)}
-                      className={`w-full px-4 py-3 text-left hover:bg-white/50 dark:hover:bg-white/10 transition-colors duration-200 flex items-center gap-3 ${
-                        lang === language.code ? 'bg-blue-50/80 text-blue-600' : 'text-gray-700 dark:text-gray-200'
-                      }`}
-                    >
-                      <span className="text-lg">{language.flag}</span>
-                      <span className="font-medium">{language.name}</span>
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
 
           {/* Bouton mode sombre */}
           <motion.button

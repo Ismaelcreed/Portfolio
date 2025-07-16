@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="relative bg-white dark:bg-gray-900 mt-20 ">
+        <footer className="relative bg-white dark:bg-gray-900">
             {/* SVG avec texte intégré */}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                  <path
@@ -24,7 +24,7 @@ const Footer = () => {
                     y="85%"
                     textAnchor="middle"
                     fill="white"
-                    className="text-[14px] sm:text-sm font-medium font-poppins"
+                    className="text-[26px] sm:text-sm font-medium font-poppins"
                 >
                     © 2025 <tspan fontWeight="600">Portfolio V1</tspan> — Tous droits réservés — Réalisé par <tspan fontWeight="600">RAZAFINDRATSIMBA Bruno Ismael</tspan>
                 </text>

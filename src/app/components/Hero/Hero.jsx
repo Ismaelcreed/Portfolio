@@ -101,13 +101,13 @@ const Hero = () => {
 
                                 
                                 {/* Profile image for mobile */}
-                                <div className="flex justify-center lg:hidden mb-8">
+                                <div className="flex justify-center lg:hidden mb-6">
                                     <div className="relative">
-                                        <div className="w-40 h-40 sm:w-48 sm:h-48 overflow-hidden">
+                                          <div className="w-48 h-48 sm:w-50 sm:h-50 md:w-62 md:h-62 overflow-hidden">
                                             <img
                                                 src="/images/profil.png"
                                                 alt="Profile"
-                                                className="w-full h-full object-contain rounded-full"
+                                                className="w-50 h-50 object-cover rounded-full drop-shadow-[0_5px_15px_rgba(0,11,118,0.4)]"
                                             />
                                         </div>
                                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
@@ -244,7 +244,7 @@ const Hero = () => {
             </div>
 
             {/* Scroll indicator */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10">
                 <span className="text-sm text-gray-500">Scroll pour découvrir</span>
                 <div className="w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center animate-bounce">
                     <ArrowDown className="w-5 h-5 text-gray-400" />
