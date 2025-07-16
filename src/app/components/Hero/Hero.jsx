@@ -99,11 +99,11 @@ const Hero = () => {
                                     {t("Hero.span")}
                                 </div>
 
-                                
+
                                 {/* Profile image for mobile */}
                                 <div className="flex justify-center lg:hidden mb-6">
                                     <div className="relative">
-                                          <div className="w-48 h-48 sm:w-50 sm:h-50 md:w-62 md:h-62 overflow-hidden">
+                                        <div className="w-48 h-48 sm:w-50 sm:h-50 md:w-62 md:h-62 overflow-hidden">
                                             <img
                                                 src="/images/profil.png"
                                                 alt="Profile"
@@ -153,13 +153,28 @@ const Hero = () => {
 
                             {/* Action buttons */}
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-                                    <Download className="w-5 h-5" />
-                                    Télécharger CV
-                                </button>
-                                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/50">
-                                    Voir mes projets
-                                </button>
+                              <a
+  href="/CV-Bruno Ismael.pdf"
+  download
+  className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center 
+  gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm
+  overflow-hidden group"
+>
+  {/* Texte et icône */}
+  <span className="relative z-10 flex items-center gap-2">
+    <Download className="w-5 h-5" />
+    Télécharger CV
+  </span>
+
+  {/* Animation de fond */}
+  <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 
+  group-hover:opacity-100 transition-opacity duration-300"></span>
+
+  {/* Effet de vague */}
+  <span className="absolute h-1 w-1 bg-purple-500 left-5 bottom-0 translate-y-full rounded-md 
+  group-hover:scale-[300] transition-all duration-700"></span>
+</a>
+                                
                             </div>
 
                             {/* Social links */}

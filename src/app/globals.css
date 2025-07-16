@@ -39,12 +39,20 @@
   .floating {
     animation: float 3s ease-in-out infinite;
   }
-  .scroll-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; /* Assurer que le défilement suit les sections */
-  }
-  
-  .scroll-container::-webkit-scrollbar {
-    display: none; /* Masquer la barre de défilement sur Chrome/Safari */
-  }
+ .scroll-container {
+  display: flex;
+  overflow-x: visible; 
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.parent-container {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}

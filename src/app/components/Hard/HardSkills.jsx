@@ -16,10 +16,10 @@ const HorizontalScroll = () => {
     // Calculer la largeur totale en fonction du nombre de sections
     const totalWidth = sections.length * window.innerWidth;
 
-    // Définir la largeur du conteneur avec une marge de sécurité
+    // Définir la largeur du conteneur
     gsap.set(container, { 
       width: totalWidth,
-      overflow: "visible"
+      overflow: "hidden"
     });
 
     // Animation principale du défilement horizontal
@@ -66,11 +66,10 @@ const HorizontalScroll = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div className="parent-container relative w-[6000px] h-screen overflow-hidden">
       <div
         ref={scrollContainerRef}
-        className="scroll-container flex h-full relative w-full"
-        style={{ width: `${5 * 100}vw` }}
+        className="scroll-container flex h-full relative"
       >
         {/* Section 1 - EMIhack 3.0 */}
         <div className="section flex-none w-screen h-full relative text-[#214a72] dark:text-blue-200 flex justify-center items-center snap-start">
@@ -112,9 +111,9 @@ const HorizontalScroll = () => {
           </svg>
 
           {/* Contenu principal */}
-          <div className="z-10 text-center justify-center relative px-4 sm:px-6 lg:px-8">
+          <div className="z-10 text-center justify-center relative px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-[#214a72] dark:text-blue-200  drop-shadow-lg"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-[#214a72] dark:text-blue-200 drop-shadow-lg"
               initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -123,7 +122,7 @@ const HorizontalScroll = () => {
             </motion.h2>
 
             <motion.p
-              className="text-sm sm:text-base md:text-lg lg:text-xl text-center mb-4 sm:mb-6 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-2 sm:px-4 leading-relaxed text-[#214a72] dark:text-blue-200  drop-shadow-md"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-center mb-4 sm:mb-6 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-2 sm:px-4 leading-relaxed text-[#214a72] dark:text-blue-200 drop-shadow-md"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -196,7 +195,7 @@ const HorizontalScroll = () => {
           </svg>
 
           {/* Contenu principal */}
-          <div className="z-10 text-center justify-center relative px-4 sm:px-6 lg:px-8">
+          <div className="z-10 text-center justify-center relative px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-blue-950 dark:text-blue-200 drop-shadow-lg"
               initial={{ opacity: 0, y: -50 }}
@@ -272,7 +271,7 @@ const HorizontalScroll = () => {
           </svg>
 
           {/* Contenu */}
-          <div className="z-10 text-center max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="z-10 text-center max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-blue-800 dark:text-blue-200"
               initial={{ opacity: 0, x: -100 }}
@@ -294,7 +293,7 @@ const HorizontalScroll = () => {
             </motion.p>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 px-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -347,7 +346,7 @@ const HorizontalScroll = () => {
             </rect>
           </svg>
 
-          <div className="z-10 text-center max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="z-10 text-center max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
               initial={{ opacity: 0, y: -50 }}
@@ -369,7 +368,7 @@ const HorizontalScroll = () => {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8"
+              className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 px-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -422,7 +421,7 @@ const HorizontalScroll = () => {
           </svg>
 
           {/* Contenu principal */}
-          <div className="z-10 text-center max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="z-10 text-center max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-blue-800 dark:text-blue-200"
               initial={{ opacity: 0, scale: 0.5 }}
@@ -443,7 +442,7 @@ const HorizontalScroll = () => {
             </motion.p>
 
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-8 px-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -458,7 +457,7 @@ const HorizontalScroll = () => {
 
               <div className="bg-blue-50 border dark:bg-blue-900/30 dark:border-blue-700 border-blue-100 rounded-lg p-6 shadow-md text-left">
                 <h3 className="text-2xl font-bold text-blue-800 mb-4 dark:text-blue-200">Disponibilité</h3>
-                <p className="text-sm text-blue-700 dark:text-white ">
+                <p className="text-sm text-blue-700 dark:text-white">
                   Disponible pour des projets freelance,
                   des collaborations à long terme et
                   des opportunités d'emploi stimulantes.
@@ -480,7 +479,6 @@ const HorizontalScroll = () => {
             </motion.div>
           </div>
         </div>
-
       </div>
     </div>
   );

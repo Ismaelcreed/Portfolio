@@ -83,10 +83,6 @@ const NavBar = () => {
     document.documentElement.classList.toggle('dark', newDarkMode);
   };
 
-  const selectLanguage = (code) => {
-    setLanguage(code);
-    setShowLangDropdown(false);
-  };
 
   const handleLinkClick = (e, path, section) => {
     e.preventDefault();

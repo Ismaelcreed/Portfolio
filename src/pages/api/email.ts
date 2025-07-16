@@ -27,7 +27,16 @@ export default async function handler(
       {
         from_name: name,
         from_email: email,
-        message: message
+        reply_to: email,  
+        message: message,
+        time: new Date().toLocaleString('fr-FR', {  // Format français
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
       },
       {
         publicKey: process.env.EMAILJS_PUBLIC_KEY, // Maintenant requis
