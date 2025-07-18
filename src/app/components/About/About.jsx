@@ -245,6 +245,8 @@ const About = () => {
   const [visibleCards, setVisibleCards] = useState(new Set());
 
   useEffect(() => {
+
+    if (typeof document === 'undefined') return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

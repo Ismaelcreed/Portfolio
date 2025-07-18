@@ -10,6 +10,10 @@ const HorizontalScroll = () => {
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
+
+    if (typeof window === 'undefined' || !ScrollTrigger || !scrollContainerRef.current) {
+      return;
+    }
     const container = scrollContainerRef.current;
     const sections = gsap.utils.toArray(".section");
 

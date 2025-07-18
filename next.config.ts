@@ -15,7 +15,8 @@ const nextConfig: NextConfig = {
           fonts: './public/fonts'
         }
       }
-    }
+    },
+    
   }
 }
 

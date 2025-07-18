@@ -38,6 +38,7 @@ const NavBar = () => {
 
   // Gestion du scroll avec useCallback pour optimiser les performances
   const handleScroll = useCallback(() => {
+    if (typeof window === 'undefined') return;
     const sections = ['home', 'about', 'projects', 'skills', 'contact'];
     const scrollPosition = window.scrollY + 100;
 
@@ -59,6 +60,7 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     // Vérification initiale au chargement
     handleScroll();
 
@@ -86,6 +88,7 @@ const NavBar = () => {
 
   const handleLinkClick = (e, path, section) => {
     e.preventDefault();
+    if (typeof window === 'undefined') return;
     const element = document.getElementById(section);
     if (element) {
       const offsetTop = section === 'home' ? 0 : element.offsetTop - 80;
