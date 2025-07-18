@@ -26,7 +26,7 @@ const eslintConfig = [
   // Vous pouvez ajouter des configurations personnalisées ici
   {
     rules: {
-      "@typescript-eslint/no-explicit-any": "warn", // Avertir plutôt qu'erreur pour 'any'
+      "@typescript-eslint/no-explicit-any": "off", 
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "react-hooks/exhaustive-deps": "warn"
     }

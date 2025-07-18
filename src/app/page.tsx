@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero/Hero';
@@ -12,51 +11,49 @@ import Loader from './components/Loader/Loader';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [resourcesLoaded, setResourcesLoaded] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Vérification que toutes les ressources sont chargées
+    setIsClient(true); 
+    
     const checkResources = () => {
       const images = Array.from(document.images);
       const isEverythingLoaded = images.every(img => img.complete);
       
       if (isEverythingLoaded) {
-        setResourcesLoaded(true);
+        setIsLoading(false);
       }
     };
 
-    // Timeout de secours (max 3 secondes)
     const timeout = setTimeout(() => {
       setIsLoading(false);
     }, 3000);
 
-    // Écouteur d'événement pour le chargement complet de la page
-    window.addEventListener('load', () => {
+    const handleLoad = () => {
       checkResources();
       setIsLoading(false);
       clearTimeout(timeout);
-    });
+    };
 
-    // Vérification périodique des ressources
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
     const interval = setInterval(checkResources, 300);
 
-    // Nettoyage
     return () => {
       clearTimeout(timeout);
       clearInterval(interval);
-      window.removeEventListener('load', () => {});
+      window.removeEventListener('load', handleLoad);
     };
   }, []);
 
-  // Cache le loader une fois que tout est prêt
-  useEffect(() => {
-    if (resourcesLoaded) {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 500); // Petit délai pour l'animation de disparition
-      return () => clearTimeout(timer);
-    }
-  }, [resourcesLoaded]);
+  // Ne rien afficher côté serveur
+  if (!isClient) {
+    return null;
+  }
 
   if (isLoading) {
     return <Loader />;

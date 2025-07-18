@@ -29,12 +29,12 @@ const NavBar = () => {
 
   // Traductions
   const t = (key) => {
-  const translations = {
-    en: { home: 'Home', about: 'About', project: 'Projects', skills: 'Skills', contact: 'Contact' },
-    fr: { home: 'Accueil', about: 'À Propos', project: 'Projets', skills: 'Compétences', contact: 'Contact' }
+    const translations = {
+      en: { home: 'Home', about: 'About', project: 'Projects', skills: 'Skills', contact: 'Contact' },
+      fr: { home: 'Accueil', about: 'À Propos', project: 'Projets', skills: 'Compétences', contact: 'Contact' }
+    };
+    return translations[lang][key] || key;
   };
-  return translations[lang][key] || key;
-};
 
   // Gestion du scroll avec useCallback pour optimiser les performances
   const handleScroll = useCallback(() => {
@@ -61,7 +61,7 @@ const NavBar = () => {
   useEffect(() => {
     // Vérification initiale au chargement
     handleScroll();
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -96,12 +96,12 @@ const NavBar = () => {
 
   // Menu items
   const menu = [
-  { id: 1, name: 'Accueil', path: "/", section: "home" },
-  { id: 2, name: 'À Propos', path: "#about", section: "about" },
-  { id: 3, name: 'Projets', path: "#projects", section: "projects" },
-  { id: 4, name: 'Compétences', path: "#skills", section: "skills" },
-  { id: 5, name: 'Contact', path: "#contact", section: "contact" },
-];
+    { id: 1, name: 'Accueil', path: "/", section: "home" },
+    { id: 2, name: 'À Propos', path: "#about", section: "about" },
+    { id: 3, name: 'Projets', path: "#projects", section: "projects" },
+    { id: 4, name: 'Compétences', path: "#skills", section: "skills" },
+    { id: 5, name: 'Contact', path: "#contact", section: "contact" },
+  ];
 
   // Langues disponibles
   const languages = [
@@ -122,9 +122,9 @@ const NavBar = () => {
     >
       <div className='container mx-auto px-6 py-4 flex justify-between items-center'>
         {/* Logo */}
-        <motion.div 
-          whileHover={{ scale: 1.05 }} 
-          whileTap={{ scale: 0.95 }} 
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           className="flex items-center"
         >
           <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-900 rounded-xl flex items-center justify-center shadow-lg">
@@ -139,25 +139,23 @@ const NavBar = () => {
         <div className="hidden lg:flex items-center space-x-8">
           <ul className="flex items-center gap-8">
             {menu.map((item, index) => (
-              <motion.li 
-                key={item.id} 
-                variants={Fadeup(0.1 * index)} 
-                initial="initial" 
+              <motion.li
+                key={item.id}
+                variants={Fadeup(0.1 * index)}
+                initial="initial"
                 animate="animate"
               >
                 <a
                   href={item.path}
                   onClick={(e) => handleLinkClick(e, item.path, item.section)}
-                  className={`relative font-medium transition-colors duration-300 group ${
-                    activeSection === item.section
+                  className={`relative font-medium transition-colors duration-300 group ${activeSection === item.section
                       ? 'text-blue-600'
                       : 'text-gray-700 dark:text-gray-200 hover:text-blue-600'
-                  }`}
+                    }`}
                 >
                   {item.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-900 transition-all duration-300 ${
-                    activeSection === item.section ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}></span>
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-900 transition-all duration-300 ${activeSection === item.section ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></span>
                 </a>
               </motion.li>
             ))}
@@ -175,14 +173,26 @@ const NavBar = () => {
         </div>
 
         {/* Bouton menu mobile */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden p-2 rounded-lg hover:bg-white/20 transition-colors duration-300"
-        >
-          {isMenuOpen ? <X className="w-6 h-6 text-gray-700 dark:text-white" /> : <Menu className="w-6 h-6 text-gray-700 dark:text-white" />}
-        </motion.button>
+        {/* Bouton menu mobile */}
+        <div className="lg:hidden flex items-center gap-2">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={toggleDarkMode}
+            className="p-2 rounded-lg text-gray-700 dark:text-white hover:bg-white/20 transition-all duration-300"
+          >
+            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 rounded-lg hover:bg-white/20 transition-colors duration-300"
+          >
+            {isMenuOpen ? <X className="w-6 h-6 text-gray-700 dark:text-white" /> : <Menu className="w-6 h-6 text-gray-700 dark:text-white" />}
+          </motion.button>
+        </div>
       </div>
 
       {/* Menu mobile */}
@@ -198,20 +208,19 @@ const NavBar = () => {
             <div className="container mx-auto px-6 py-6">
               <ul className="space-y-4">
                 {menu.map((item, index) => (
-                  <motion.li 
-                    key={item.id} 
-                    initial={{ opacity: 0, x: -20 }} 
-                    animate={{ opacity: 1, x: 0 }} 
+                  <motion.li
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 * index }}
                   >
                     <a
                       href={item.path}
                       onClick={(e) => handleLinkClick(e, item.path, item.section)}
-                      className={`block py-3 px-4 rounded-lg transition-all duration-300 font-medium ${
-                        activeSection === item.section
+                      className={`block py-3 px-4 rounded-lg transition-all duration-300 font-medium ${activeSection === item.section
                           ? 'text-blue-600 bg-blue-50/80'
                           : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 hover:bg-white/50 dark:hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       {item.name}
                     </a>
