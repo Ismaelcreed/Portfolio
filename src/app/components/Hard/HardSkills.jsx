@@ -377,7 +377,7 @@ const HorizontalScroll = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              {['HTML5', 'CSS3', 'Sass', 'Tailwindcss', 'JavaScript', 'TypeScript', 'Python', 'React', 'Node.js', 'AI/ML', 'Tensorflow/Keras', 'SkLearn', 'Linear regression model', 'Pandas', 'Flask', 'MySQL', 'MongoDB', 'PostgreSQL', 'Git', 'Github', 'VSCode', 'JupyterNoteBook', 'Anaconda'].map((skill, index) => (
+              {['HTML5', 'CSS3', 'Sass', 'Tailwindcss', 'JavaScript', 'TypeScript', 'Python', 'React', 'Node.js', 'AI/ML', 'Tensorflow/Keras', 'SkLearn', 'Linear regression model', 'Pandas', 'MySQL', 'MongoDB', 'PostgreSQL', 'Git', 'Github', 'VSCode', 'JupyterNoteBook', 'Google Colab'].map((skill, index) => (
                 <span key={index} className="bg-white/20 dark:bg-blue-400/20 backdrop-blur-sm px-2 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold">
                   {skill}
                 </span>

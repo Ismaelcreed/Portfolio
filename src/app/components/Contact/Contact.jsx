@@ -116,6 +116,16 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
+
+              {/* SVG responsive juste en dessous du bloc “Qualité Garantie” */}
+              <div className="mt-4 w-full max-w-xs lg:max-w-sm mx-auto">
+                <img
+                  src="/feedback.svg"  // chemin relatif depuis le dossier public
+                  alt="Illustration qualité garantie"
+                  className="w-full h-auto"
+                />
+              </div>
+
             </div>
           </div>
 

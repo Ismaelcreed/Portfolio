@@ -1,7 +1,8 @@
 "use client"
 import React from 'react';
 import CircularText from "../CircularText/CircularText";
-import { Github, Facebook, Phone, Mail, Download, ArrowDown, Sparkles, BrainCircuit, Lightbulb } from 'lucide-react';
+import TrueFocus from "../TrueFocus/TrueFocus";
+import { Facebook, Github, Phone, Mail, Download, ArrowDown, Sparkles, BrainCircuit, Lightbulb, Code, Zap, Target } from 'lucide-react';
 
 const Hero = () => {
     // Simulation des traductions
@@ -15,242 +16,235 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative min-h-screen transition-all duration-300 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] overflow-hidden">
-            {/* Background decorative elements */}
+        <section className="relative min-h-screen transition-all duration-300 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-[#0a0f1c] dark:via-[#1e293b] dark:to-[#0f172a] overflow-hidden">
+            {/* Enhanced Background Elements */}
             <div className="absolute inset-0 overflow-hidden z-0">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/5 to-purple-400/5 rounded-full blur-3xl"></div>
+                {/* Primary gradient orbs */}
+                <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-purple-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+                {/* Secondary floating elements */}
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-indigo-300/10 to-purple-300/5 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gradient-to-tr from-emerald-300/10 to-teal-300/5 rounded-full blur-2xl"></div>
+
+                {/* Animated particles */}
+                <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400/60 rounded-full animate-ping"></div>
+                <div className="absolute top-1/3 right-20 w-1 h-1 bg-purple-400/60 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-cyan-400/60 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
             </div>
 
-            {/* Dots SVG Pattern Background */}
-            <div className="absolute inset-0 opacity-[0.4] z-0">
+            {/* Premium Grid Pattern */}
+            <div className="absolute inset-0 opacity-[0.03] z-0">
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <circle cx="20" cy="20" r="1.5" fill="url(#dotGradient)" opacity="0.6" />
-                            <circle cx="10" cy="10" r="1" fill="url(#dotGradient)" opacity="0.3" />
-                            <circle cx="30" cy="10" r="1" fill="url(#dotGradient)" opacity="0.3" />
-                            <circle cx="10" cy="30" r="1" fill="url(#dotGradient)" opacity="0.3" />
-                            <circle cx="30" cy="30" r="1" fill="url(#dotGradient)" opacity="0.3" />
+                        <pattern id="premiumGrid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
+                            <circle cx="30" cy="30" r="1.5" fill="currentColor" opacity="0.5" />
                         </pattern>
-                        <linearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.8 }} />
-                            <stop offset="100%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.4 }} />
-                        </linearGradient>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#dots)" />
+                    <rect width="100%" height="100%" fill="url(#premiumGrid)" className="text-slate-900 dark:text-slate-100" />
                 </svg>
             </div>
 
-            {/* Animated dots overlay */}
-            <div className="absolute inset-0 opacity-[0.2] z-0">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="animatedDots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                            <circle cx="30" cy="30" r="2" fill="#3b82f6" opacity="0.5">
-                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite" />
-                            </circle>
-                            <circle cx="15" cy="15" r="1" fill="#8b5cf6" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" begin="0.5s" />
-                            </circle>
-                            <circle cx="45" cy="15" r="1" fill="#06b6d4" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.5s" repeatCount="indefinite" begin="1s" />
-                            </circle>
-                            <circle cx="15" cy="45" r="1" fill="#10b981" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.2s" repeatCount="indefinite" begin="1.5s" />
-                            </circle>
-                            <circle cx="45" cy="45" r="1" fill="#f59e0b" opacity="0.3">
-                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.8s" repeatCount="indefinite" begin="2s" />
-                            </circle>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#animatedDots)" />
-                </svg>
+            {/* Floating Tech Icons */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <div className="absolute top-1/4 left-1/4 opacity-5 animate-float">
+                    <Code className="w-12 h-12 text-blue-500" />
+                </div>
+                <div className="absolute top-3/4 right-1/4 opacity-5 animate-float" style={{ animationDelay: '2s' }}>
+                    <Zap className="w-10 h-10 text-purple-500" />
+                </div>
+                <div className="absolute bottom-1/4 left-1/3 opacity-5 animate-float" style={{ animationDelay: '4s' }}>
+                    <Target className="w-8 h-8 text-cyan-500" />
+                </div>
             </div>
 
-            {/* Subtle geometric dots */}
-            <div className="absolute inset-0 opacity-[0.1] z-0">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="geometricDots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                            <circle cx="50" cy="50" r="3" fill="none" stroke="#3b82f6" strokeWidth="0.5" opacity="0.6" />
-                            <circle cx="25" cy="25" r="1.5" fill="#8b5cf6" opacity="0.4" />
-                            <circle cx="75" cy="25" r="1.5" fill="#8b5cf6" opacity="0.4" />
-                            <circle cx="25" cy="75" r="1.5" fill="#8b5cf6" opacity="0.4" />
-                            <circle cx="75" cy="75" r="1.5" fill="#8b5cf6" opacity="0.4" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#geometricDots)" />
-                </svg>
+            {/* TrueFocus Integration - Moved to left */}
+            <div className="absolute top-14 left-[25rem] z-20 hidden lg:block dark:text-white">
+                <TrueFocus />
             </div>
+
+
+
 
             {/* Main content */}
-            <div className="relative z-10 pt-24 pb-16 px-6" style={{ paddingTop: '6rem' }}>
-                <div className="container mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-6rem)]">
+            <div className="relative z-10 pt-20 lg:pt-24 pb-16 px-4 sm:px-6">
+                <div className="container mx-auto max-w-7xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
 
                         {/* Left content */}
-                        <div className="flex flex-col justify-center space-y-8">
-                            <div className="text-center lg:text-left space-y-6">
-                                {/* Greeting */}
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full text-sm font-medium text-gray-700 backdrop-blur-sm">
-                                    <Sparkles className="w-4 h-4 text-blue-600" />
-                                    {t("Hero.span")}
-                                </div>
+                        <div className="flex flex-col justify-center space-y-4 lg:space-y-8 order-2 lg:order-1">
 
-
-                                {/* Profile image for mobile */}
-                                <div className="flex justify-center lg:hidden mb-6">
-                                    <div className="relative">
-                                        <div className="w-48 h-48 sm:w-50 sm:h-50 md:w-62 md:h-62 overflow-hidden">
-                                            <img
-                                                src="/images/profil.png"
-                                                alt="Profile"
-                                                className="w-50 h-50 object-cover rounded-full drop-shadow-[0_5px_15px_rgba(0,11,118,0.4)]"
-                                            />
-                                        </div>
-                                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
-                                            <div className="w-3 h-3 bg-white rounded-full"></div>
-                                        </div>
+                            {/* Profile image for mobile */}
+                            <div className="flex justify-center lg:hidden mb-6 order-1">
+                                <div className="relative">
+                                    <div className="w-48 h-48 overflow-hidden rounded-full shadow-2xl mx-auto">
+                                        <img
+                                            src="/images/profil.png"
+                                            alt="Profile Bruno Ismael RAZAFINDRATSIMBA"
+                                            className="w-60 h-w-60 object-cover"
+                                        />
+                                    </div>
+                                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                                        <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
                                     </div>
                                 </div>
+                            </div>
 
-
-                                {/* Main heading */}
-                                <h1 className="text-4xl md:text-5xl z-10 lg:text-6xl justify-start font-bold leading-tight">
-                                    <span className="text-gray-800 dark:text-white">{t("Hero.span1")}</span>
-                                    <br />
-                                    <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
-                                        RAZAFINDRATSIMBA
+                            <div className="text-center lg:text-left space-y-6 order-2">
+                                {/* Greeting Badge */}
+                                <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-200 backdrop-blur-md border border-white/20 shadow-lg">
+                                    <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                        {t("Hero.span")}
                                     </span>
-                                    <br />
-                                    <span className="text-gray-800 dark:text-white">Bruno Ismael</span>
-                                </h1>
+                                </div>
 
-                                {/* Subtitle */}
-                                <p className="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-gray-400">
-                                    {t("Hero.span2")}
-                                </p>
+                                {/* Main Heading */}
+                                <div className="space-y-2 px-2">
+                                    <h1 className="font-black leading-tight tracking-tight">
+                                        <div className="text-slate-800 dark:text-slate-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2">
+                                            {t("Hero.span1")}
+                                        </div>
 
-                                {/* Specialties */}
-                                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full font-medium">
-                                        <BrainCircuit className="w-4 h-4" />
-                                        Développement Web
+                                        {/* RAZAFINDRATSIMBA - Correction responsive */}
+                                        <div className="relative">
+                                            <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight break-words hyphens-auto">
+                                                RAZAFINDRATSIMBA
+                                            </div>
+                                        </div>
+
+                                        <div className="text-slate-800 dark:text-slate-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2">
+                                            Bruno Ismael
+                                        </div>
+                                    </h1>
+
+                                    <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl font-light leading-relaxed">
+                                        {t("Hero.span2")}
+                                    </p>
+                                </div>
+
+
+                                {/* Enhanced Specialties */}
+                                <div className="flex flex-wrap gap-3 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                                    <span className="group inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md text-blue-700 dark:text-blue-300 rounded-2xl font-semibold border border-blue-200/50 dark:border-blue-700/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-blue-100 hover:to-blue-200">
+                                        <BrainCircuit className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                                        <span className="hidden sm:inline">Développement Web</span>
+                                        <span className="sm:hidden">Dev Web</span>
                                     </span>
-                                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100/80 backdrop-blur-sm text-purple-700 rounded-full font-medium">
-                                        <Sparkles className="w-4 h-4" />
-                                        Intelligence Artificielle
+                                    <span className="group inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 backdrop-blur-md text-purple-700 dark:text-purple-300 rounded-2xl font-semibold border border-purple-200/50 dark:border-purple-700/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-purple-100 hover:to-purple-200">
+                                        <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                                        <span className="hidden sm:inline">Intelligence Artificielle</span>
+                                        <span className="sm:hidden">IA</span>
                                     </span>
-                                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100/80 backdrop-blur-sm text-green-700 rounded-full font-medium">
-                                        <Lightbulb className="w-4 h-4" />
+                                    <span className="group inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-emerald-900/30 dark:to-emerald-800/30 backdrop-blur-md text-emerald-700 dark:text-emerald-300 rounded-2xl font-semibold border border-emerald-200/50 dark:border-emerald-700/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-emerald-100 hover:to-emerald-200">
+                                        <Lightbulb className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                                         Innovation
                                     </span>
                                 </div>
 
-                            </div>
-
-                            {/* Action buttons */}
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                              <a
-  href="/CV-Bruno Ismael.pdf"
-  download
-  className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center 
-  gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm
-  overflow-hidden group"
->
-  {/* Texte et icône */}
-  <span className="relative z-10 flex items-center gap-2">
-    <Download className="w-5 h-5" />
-    Télécharger CV
-  </span>
-
-  {/* Animation de fond */}
-  <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 
-  group-hover:opacity-100 transition-opacity duration-300"></span>
-
-  {/* Effet de vague */}
-  <span className="absolute h-1 w-1 bg-purple-500 left-5 bottom-0 translate-y-full rounded-md 
-  group-hover:scale-[300] transition-all duration-700"></span>
-</a>
-                                
-                            </div>
-
-                            {/* Social links */}
-                            <div className="space-y-4 ">
-                                <p className="text-gray-600 font-medium text-center lg:text-left dark:text-white">
-                                    Connectez-vous avec moi
-                                </p>
-                                <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
+                                {/* Enhanced Action Button - Unique et responsive */}
+                                <div className="flex justify-center lg:justify-start animate-fade-in-up pt-4" style={{ animationDelay: '0.8s' }}>
                                     <a
-                                        href="https://www.facebook.com/xan.travis"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-110"
+                                        href="/CV_Bruno Ismael.pdf"
+                                        download
+                                        className="group relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-bold text-sm lg:text-base flex items-center gap-2 shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 border border-white/10 backdrop-blur-md overflow-hidden"
                                     >
-                                        <Facebook className="w-5 h-5 dark:text-white" />
-                                        <span className="hidden sm:inline dark:text-white">Facebook</span>
-                                    </a>
-
-                                    <a
-                                        href="https://github.com/search?q=IsmaelCreed&type=users"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-all duration-300 hover:scale-110"
-                                    >
-                                        <Github className="w-5 h-5 dark:text-white" />
-                                        <span className="hidden sm:inline dark:text-white">GitHub</span>
-                                    </a>
-
-                                    <a
-                                        href="mailto:razafindratsimbabrunoismael@gmail.com"
-                                        className="flex items-center gap-2 text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110"
-                                    >
-                                        <Mail className="w-5 h-5 dark:text-white" />
-                                        <span className="hidden sm:inline dark:text-white">Email</span>
-                                    </a>
-
-                                    <div className="flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-all duration-300 hover:scale-110">
-                                        <Phone className="w-5 h-5 dark:text-white" />
-                                        <span className="hidden sm:inline text-sm dark:text-white">
-                                            +261 34 58 997 43
+                                        {/* Content */}
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            <Download className="w-4 h-4 lg:w-5 lg:h-5 group-hover:animate-bounce" />
+                                            <span>Télécharger mon CV</span>
                                         </span>
+
+                                        {/* Shine effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 translate-x-full opacity-0 group-hover:animate-shine"></div>
+                                    </a>
+                                </div>
+
+                                {/* Enhanced Social Links */}
+                                <div className="space-y-4 animate-fade-in-up pt-4" style={{ animationDelay: '1.0s' }}>
+                                    <p className="text-slate-600 dark:text-slate-300 font-semibold text-center lg:text-left text-base">
+                                        Connectez-vous avec moi
+                                    </p>
+                                    <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                                        {[
+                                            { icon: Facebook, href: "https://www.facebook.com/xan.travis", label: "Facebook", color: "hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30" },
+                                            { icon: Github, href: "https://github.com/search?q=IsmaelCreed&type=users", label: "GitHub", color: "hover:text-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30" },
+                                            { icon: Mail, href: "mailto:razafindratsimbabrunoismael@gmail.com", label: "Email", color: "hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" }
+                                        ].map((social, index) => (
+                                            <a
+                                                key={social.label}
+                                                href={social.href}
+                                                target={social.href.includes('mailto') ? '_self' : '_blank'}
+                                                rel={social.href.includes('mailto') ? '' : 'noopener noreferrer'}
+                                                className={`group flex items-center gap-2 px-3 py-2 text-slate-600 dark:text-slate-300 transition-all duration-300 rounded-lg backdrop-blur-sm border border-transparent ${social.color} hover:scale-110 hover:shadow-md`}
+                                            >
+                                                <social.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                                                <span className="hidden sm:inline text-sm font-medium">{social.label}</span>
+                                            </a>
+                                        ))}
+                                        <div className="group flex items-center gap-2 px-3 py-2 text-slate-600 dark:text-slate-300 transition-all duration-300 rounded-lg hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-900/30 hover:scale-110 hover:shadow-md">
+                                            <Phone className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                                            <span className="hidden sm:inline text-sm font-medium">+261 34 58 997 43</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Right content - Desktop only */}
-                        <div className="hidden lg:flex justify-center items-center relative">
-                            <div className="relative w-full max-w-lg">
-                                {/* Profile Image */}
-                                <div className="relative z-10">
-                                    <div className="max-w-[350px] max-h-[400px] p-0">
-                                        <img
-                                            src="/images/profil.png"
-                                            alt="Profile"
-                                            className="w-full h-full rounded-full object-cover drop-shadow-[0_5px_10px_rgba(0,11,118,0.6)]"
-                                        />
+                        {/* Right content - Desktop Profile Image */}
+                        <div className="hidden lg:flex justify-end items-center relative order-1 lg:order-2">
+                            <div className="relative w-full max-w-md mr-8">
+                                {/* Main Profile Container */}
+                                <div className="relative z-10 group">
+                                    <div className="relative w-full max-w-fit mx-auto">
+                                        {/* Profile Image with Simple Shadow */}
+                                        <div className="relative overflow-hidden drop-shadow-md">
+                                            <img
+                                                src="/images/profil.png"
+                                                alt="Profile Bruno Ismael RAZAFINDRATSIMBA"
+                                                className="w-80 h-w-80 object-cover transition-all duration-500 group-hover:scale-105 drop-shadow-[0_5px_10px_rgba(0,11,118,0.6)]"
+                                            />
+                                        </div>
+
+                                        {/* Enhanced CircularText */}
+                                        <div className="absolute -top-6 -right-6 group-hover:scale-105 transition-transform duration-400">
+                                            <CircularText
+                                                text="INNOVATION • TECHNOLOGIE • DÉVELOPPEMENT •"
+                                                spinDuration={20}
+                                                className="w-40 h-48 text-blue-600 dark:text-blue-400"
+                                            />
+                                        </div>
+
+                                        {/* Premium Status Badge */}
+                                        <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full border-2 border-white shadow-lg animate-float bg-transparent">
+                                            <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div> {/* agrandi le point */}
+                                            <img
+                                                src="/JS.svg"
+                                                alt="Statut en ligne"
+                                                className="h-14 w-auto"  // agrandi le SVG
+                                            />
+                                        </div>
+
+                                        {/* Floating Achievement Badges */}
+                                        <div className="absolute -bottom-0 -left-4 text-white px-3 py-1 rounded-full border-2 border-white text-xs font-bold shadow-lg animate-float bg-transparent">
+                                            <img
+                                                src="/balise.svg"
+                                                alt="Badge Full-Stack"
+                                                className="h-12 w-auto" // agrandi le SVG
+                                            />
+                                        </div>
+
+                                        <div className="absolute top-1/2 -right-8 text-white px-3 py-1 rounded-full border-2 border-white text-xs font-bold shadow-lg animate-float bg-transparent" style={{ animationDelay: '2s' }}>
+                                            <img
+                                                src="/python.svg"
+                                                alt="Badge AI Expert"
+                                                className="h-12 w-auto" // agrandi le SVG
+                                            />
+                                        </div>
+
                                     </div>
-
-
-
-                                    {/* CircularText positioned top-right */}
-                                    <div className="absolute -top-6 -right-6">
-                                        <CircularText
-                                            text="INNOVATION • TECHNOLOGIE • DÉVELOPPEMENT •"
-                                            spinDuration={20}
-                                            className="w-32 h-32 text-blue-700"
-                                        />
-                                    </div>
-
-                                    {/* Online status badge */}
-                                    <div className="absolute top-4 left-4 w-8 h-8 bg-green-500 rounded-full border-4 border-white shadow-md"></div>
                                 </div>
-
-                                {/* Subtle background glow */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl -z-10 scale-125"></div>
                             </div>
                         </div>
 
@@ -258,13 +252,42 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
-            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-                <span className="text-sm text-gray-500">Scroll pour découvrir</span>
-                <div className="w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center animate-bounce">
-                    <ArrowDown className="w-5 h-5 text-gray-400" />
+            {/* Enhanced Scroll Indicator */}
+            <div className="absolute bottom-8 left-2/4 transform -translate-x-1/2 flex flex-col items-center gap-3 z-20 animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
+                <div className="group w-8 h-8 lg:w-10 lg:h-10 border-2 border-slate-400 rounded-full flex items-center justify-center animate-bounce hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors duration-300 cursor-pointer">
+                    <ArrowDown className="w-4 h-4 lg:w-5 lg:h-5 text-slate-400 group-hover:text-blue-500 transition-colors duration-300" />
                 </div>
             </div>
+
+            {/* Custom Styles */}
+            <style jsx>{`
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    50% { transform: translateY(-8px) rotate(3deg); }
+                }
+                
+                @keyframes shine {
+                    0% { transform: translateX(-100%) skewX(-12deg); }
+                    100% { transform: translateX(200%) skewX(-12deg); }
+                }
+                
+                @keyframes fade-in-up {
+                    0% { opacity: 0; transform: translateY(30px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                }
+                
+                .animate-float {
+                    animation: float 3s ease-in-out infinite;
+                }
+                
+                .animate-shine {
+                    animation: shine 2s ease-in-out;
+                }
+                
+                .animate-fade-in-up {
+                    animation: fade-in-up 0.8s ease-out forwards;
+                }
+            `}</style>
         </section>
     );
 };

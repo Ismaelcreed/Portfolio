@@ -64,6 +64,18 @@ const educationItems = [
   },
   {
     id: 6,
+    year: "Août 2025",
+    title: "Formation en IA et outils",
+    institution: "Orange Digital Center",
+    location: "Antananarivo, Madagascar",
+    type: "certificate",
+    level: "Certificate",
+    color: "from-blue-400 to-blue-600",
+    bgColor: "white",
+    icon: <img src="/images/Logo-orange.jpg" alt="ODC" className="w-14 h-14 rounded-full shadow-lg object-center" />,
+  },
+  {
+    id: 7,
     year: "Octobre 2021",
     title: "Certificat de participation au programme Arduino",
     institution: "TME Education Group",
@@ -74,6 +86,7 @@ const educationItems = [
     bgColor: "white",
     icon: <FaCertificate className="w-10 h-10 text-white" />,
   },
+  
 ];
 
 const AnimatedBackground = () => (

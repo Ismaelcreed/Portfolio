@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Razafindratsimba Bruno Ismael",
+  title: "Bruno Ismael | Portfolio",
   description: "Portfolio de développement",
 };
 
